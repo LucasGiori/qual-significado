@@ -8,18 +8,23 @@ const baseUrl = "https://pt.wikipedia.org/api/rest_v1/page/summary/";
 const onSubmit = (e) => {
   e.preventDefault();
   const { input } = form;
-  const text = input.value.toString().trim();
-  text.length > 0 && searchText(input.value);
+
+  let text = input.value.toString();
+  text = replaceWhitespaceToUnderlined(text);
+
+  text.length > 0 && searchText(text);
 };
 
 const searchText = async (inputText) => {
   const res = await fetch(baseUrl + inputText);
   const data = await res.json();
+
   renderHtml(data, inputText);
 };
 
 const renderHtml = (dataJson, inputText) => {
   const { extract_html, thumbnail, content_urls } = dataJson;
+
   extract_html
     ? (
       message.innerHTML = extract_html,
@@ -36,5 +41,9 @@ const renderHtml = (dataJson, inputText) => {
         img.removeAttribute("src")
     );
 };
+
+const replaceWhitespaceToUnderlined = (value) => {
+  return value.replace(/( )+/g, '_');
+}
 
 form.addEventListener("submit", onSubmit);
