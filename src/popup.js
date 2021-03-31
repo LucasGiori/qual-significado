@@ -31,7 +31,7 @@ const renderHtml = (dataJson, inputText) => {
     )
     : (
       message.innerHTML =
-        `<p>Nenhuma correspondencia para <b>${inputText}...</b></p>`,
+        `<p>Nenhuma correspondencia para <b>${inputText}</b>...</p>`,
         link.classList.add("hidden"),
         img.removeAttribute("src")
     );
