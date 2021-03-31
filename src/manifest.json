@@ -1,0 +1,14 @@
+{
+  "name": "Qual Significado",
+  "manifest_version": 3,
+  "version": "0.1",
+  "permissions": [
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

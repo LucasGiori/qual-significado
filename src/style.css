@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fafafa;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.2);
+  min-width: 300px;
+}
+
+.container input {
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 2px #ccc;
+  width: 100%;
+}
+
+.container button {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+}
+
+.message-container {
+  margin-top: 10px;
+  padding: 10px;
+}
