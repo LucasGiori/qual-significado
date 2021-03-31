@@ -1,18 +1,23 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-  <script src="./popup.js" type="module"></script>
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-  <form id="control-row">
-    <label for="input">Domain:</label>
-    <input type="text" id="input">
-    <br>
-    <button id="go">Pesquisar Significado</button>
-  </form>
-  <span id="message" hidden></span>
+  <div class="container">
+    <div>
+      <label for="input">Qual Significado?</label>
+      <input type="text" id="input" placeholder="Pesquisar significado...">
+      <br>
+      <button type="button" id="go">Pesquisar</button>
+    </div>
+    <div class="message-container">
+      <div id="message"></div>
+    </div>
+  </div>
 </body>
+<script src="./popup.js"></script>
 
 </html>
