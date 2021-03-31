@@ -1,6 +1,7 @@
 const input = document.getElementById("input");
 const btn = document.getElementById("go");
 const message = document.getElementById("message");
+const link = document.getElementById("link")
 
 btn.onclick = function () {
   const url =
@@ -8,9 +9,14 @@ btn.onclick = function () {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      data.extract_html
-        ? message.innerHTML = data.extract_html
-        : message.innerHTML =
-          `<p>Nenhuma correspondencia para <b>${input.value}...</b></p>`;
+      if(data.extract_html){
+        link.href = data.content_urls.desktop.page;
+        link.classList.remove('hidden')
+
+        return message.innerHTML = data.extract_html
+      }
+
+      link.classList.add('hidden')
+      return message.innerHTML = `<p>Nenhuma correspondencia para <b>${input.value}...</b></p>`;
     });
 };
