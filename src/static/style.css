@@ -58,7 +58,7 @@ body {
 
 .message-container a#link {
   margin-top: 3px;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .message-container a#link:hover {
