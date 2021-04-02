@@ -25,31 +25,60 @@ const searchText = async (inputText) => {
 
 const setOrRemoveLinkHref = (dataJson) => {
   const { content_urls } = dataJson;
+
   if (content_urls?.desktop) {
     link.setAttribute("href", content_urls.desktop?.page);
     link.classList.remove("hidden");
-  } else {
-    link.removeAttribute("href");
-    link.classList.add("hidden");
+    return;
   }
+  link.removeAttribute("href");
+  link.classList.add("hidden");
+  return;
+  
 };
 
 const setOrRemoveThumbnailSrc = (dataJson) => {
   const { thumbnail } = dataJson;
-  thumbnail?.source
-    ? img.setAttribute("src", thumbnail.source)
-    : img.removeAttribute("src");
+  if (thumbnail?.source) {
+    img.setAttribute("src", thumbnail.source)
+    return;
+  }
+  img.removeAttribute("src");
+  return;
 };
 
 const setInnerHtmlContent = (dataJson) => {
-  const { extract_html } = dataJson;
+  const { extract, extract_html } = dataJson;
+  const noMatchMessage = `Nenhuma correspondência para ${input.value}...`;
+  const noMatchMessageFormatted =  `<p>Nenhuma correspondência para <b>${input.value}</b>...</p>`;
+
   if (extract_html) {
-    message.innerHTML = extract_html;
-  } else {
-    message.innerHTML =
-      `<p>Nenhuma correspondência para <b>${input.value}</b>...</p>`;
+    typeWrite(element=message, text=extract, formatted_text=extract_html);
+    return
   }
+  typeWrite(element=message, text=noMatchMessage, formatted_text=noMatchMessageFormatted);
+  return;
 };
+
+const typeWrite = (element, text, formatted_text = null) => {
+  const textToArray = text.split('');
+  const lengthArray = textToArray.length;
+
+  element.innerHTML = ' ';
+
+  textToArray.forEach((letter, index)=> {
+    setTimeout(() => {
+      element.innerHTML += letter;
+    }, 2 * index);
+
+    if (formatted_text != null && index === lengthArray-1) {
+      setTimeout(() => {
+        element.innerHTML = ' ';
+        element.innerHTML = formatted_text;
+      }, 2 * index)
+    }
+  });
+}
 
 const renderHtml = (dataJson) => {
   setInnerHtmlContent(dataJson);

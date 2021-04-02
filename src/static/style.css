@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 body {
@@ -54,6 +54,16 @@ body {
 .message-container img {
   margin-top: 10px;
   border-radius: 5px;
+}
+
+.message-container a#link {
+  margin-top: 3px;
+  border-radius: 3px;
+}
+
+.message-container a#link:hover {
+  background-color: #4e54ff;
+  color: #fff;
 }
 
 a {
