@@ -15,8 +15,6 @@ body {
   align-items: center;
   flex-direction: column;
   padding: 15px;
-  border-radius: 5px;
-  box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.2);
   min-width: 300px;
 }
 
@@ -55,6 +53,15 @@ body {
 .message-container img {
   margin-top: 10px;
   border-radius: 5px;
+}
+
+.message-container #img {
+  transition: 500ms;
+}
+
+.message-container #img:hover {
+  transform: scale(2);
+  box-shadow: 1px 5px 10px 0 rgba(0, 0, 0, 0.8);
 }
 
 .message-container a#link {
