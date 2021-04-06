@@ -84,3 +84,22 @@ a {
   margin-top: 5px;
   display: none;
 }
+
+.message-container #message p {
+  display: inline;
+}
+
+.message-container .type-writer-cursor::after {
+  content: '|';
+  opacity: 1;
+  animation: typeWriterCursor 700ms infinite;
+}
+
+@keyframes typeWriterCursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
